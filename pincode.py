@@ -8,7 +8,7 @@ from playsound import playsound
 # Please change requirements below
 age = 18 # Age of the person - 18/45
 dose = 1 #Value should be 1 or 2. [Dose 1/ Dose 2] 
-districtcodes = ['603','581','596','604'] # Codes/s to search vaccine availability - grab-districtcodes.html
+pincodes = ['500090','560036'] # Pincode/s to search vaccine availability - grab-districtcodes.html
 num_days = 4 # Number of days in the future to search for
 vaccineType = "" #It should be COVISHIELD or COVAXIN or leave blank
 
@@ -19,10 +19,10 @@ randomnumber = random.randint(1,999999)
 
 while True:
     cnt = 0
-    for code in districtcodes:
+    for pincode in pincodes:
         for date in dates:
-            url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id={}&date={}&_{}".format(
-                code, date,randomnumber)
+            url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode={}&date={}&_{}".format(
+                pincode, date,randomnumber)
             headers = {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'
                 }
@@ -43,6 +43,7 @@ while True:
                       print("\nAvailable capacity (Dose 1): "+str(session['available_capacity_dose1']))
                       print("\nAvailable capacity (Dose 2): "+str(session['available_capacity_dose2']))
                       print("\nVaccine Type: "+session['vaccine'])
+                      print("\n==================================")
                       cnt+=1
             else:
               print("\nIssue with API. No response.")

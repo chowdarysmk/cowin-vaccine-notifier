@@ -8,7 +8,7 @@ from playsound import playsound
 # Please change requirements below
 age = 18 # Age of the person - 18/45
 dose = 1 #Value should be 1 or 2. [Dose 1/ Dose 2] 
-districtcodes = ['603','581','596','604'] # Codes/s to search vaccine availability - grab-districtcodes.html
+districtcodes = ['603','581','596','604'] # Codes/s to search vaccine availability - https://bit.ly/districtcodes
 num_days = 4 # Number of days in the future to search for
 vaccineType = "" #It should be COVISHIELD or COVAXIN or leave blank
 
